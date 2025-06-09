@@ -1724,3 +1724,1002 @@ Task: Write blog post (normally 3 hrs)
 **LLM Compatibility**: ChatGPT 4, Claude 3, Gemini Pro  
 **Tags**: `insights`, `action`, `application`
 
+---
+
+### 🧠 Contextual Code Generator
+
+**Prompt Purpose**: Generates code snippets tailored to your framework, language, and style conventions.  
+**Prompt Usage**:  
+```
+
+Write a {language} function to {goal\_description} using {framework\_or\_library}, following best practices and including comments.
+
+````
+**Example Output**:  
+```js
+// JavaScript function to debounce calls
+function debounce(fn, delay) {
+  let timeout;
+  return function(...args) {
+    clearTimeout(timeout);
+    timeout = setTimeout(() => fn.apply(this, args), delay);
+  };
+}
+````
+
+**LLM Compatibility**: ChatGPT 4, Claude 3, Gemini Pro
+**Tags**: `code_generation`, `frameworks`, `best_practices`
+
+---
+
+### 🧠 Automated Unit Test Writer
+
+**Prompt Purpose**: Generates unit tests for given functions or modules in your test framework.
+**Prompt Usage**:
+
+```
+Given this function in {language}:\n{paste_code}\nWrite corresponding unit tests using {test_framework}.
+```
+
+**Example Output**:
+
+```python
+import unittest
+from mymodule import add
+class TestAdd(unittest.TestCase):
+    def test_add_positive(self):
+        self.assertEqual(add(2, 3), 5)
+    def test_add_negative(self):
+        self.assertEqual(add(-1, -1), -2)
+```
+
+**LLM Compatibility**: ChatGPT 4, Claude 3, Gemini Pro
+**Tags**: `testing`, `unit_tests`, `TDD`
+
+---
+
+### 🧠 Bug Reproduction Assistant
+
+**Prompt Purpose**: Helps you turn a bug description into a minimal reproducible example.
+**Prompt Usage**:
+
+```
+Here’s a bug report:\n{bug_description}\nCreate a minimal code snippet that reproduces this issue.
+```
+
+**Example Output**:
+
+```js
+// Reproduces “undefined is not a function” error
+let obj;
+obj.method();
+```
+
+**LLM Compatibility**: ChatGPT 4, Claude 3, Gemini Pro
+**Tags**: `debugging`, `reproduction`, `triage`
+
+---
+
+### 🧠 Code Review Coach
+
+**Prompt Purpose**: Provides feedback on code quality, style, and potential improvements.
+**Prompt Usage**:
+
+```
+Review this code in {language}: {paste_code}\nPoint out style issues, performance concerns, and suggest improvements.
+```
+
+**Example Output**:
+
+> * Use `const` instead of `let` for immutable variables.
+> * Consider caching the API response to reduce network calls.
+>   **LLM Compatibility**: ChatGPT 4, Claude 3, Gemini Pro
+>   **Tags**: `code_review`, `quality`, `refactoring`
+
+---
+
+### 🧠 API Endpoint Designer
+
+**Prompt Purpose**: Generates RESTful or GraphQL schema for your new API.
+**Prompt Usage**:
+
+```
+Design a REST API for {resource_description}, including endpoints, payload schemas, and HTTP methods.
+```
+
+**Example Output**:
+
+```yaml
+GET /users → returns list of users  
+POST /users { name, email } → creates user  
+GET /users/{id} → returns user  
+PUT /users/{id} → updates user  
+```
+
+**LLM Compatibility**: ChatGPT 4, Claude 3, Gemini Pro
+**Tags**: `API`, `design`, `schema`
+
+---
+
+### 🧠 Database Schema Architect
+
+**Prompt Purpose**: Helps model entities, relationships, and indices for your application.
+**Prompt Usage**:
+
+```
+I need a database schema for {domain}. Define tables, fields, relationships, and recommended indices.
+```
+
+**Example Output**:
+
+> **Users**(id PK, name, email UNIQUE)
+> **Posts**(id PK, user\_id FK, title, body, created\_at)
+> Index on `Posts(user_id, created_at)`.
+> **LLM Compatibility**: ChatGPT 4, Claude 3, Gemini Pro
+> **Tags**: `database`, `ERD`, `performance`
+
+---
+
+### 🧠 Deployment Pipeline Blueprint
+
+**Prompt Purpose**: Outlines a CI/CD workflow tailored to your tech stack.
+**Prompt Usage**:
+
+```
+Create a CI/CD pipeline for a {language}/{platform} project using {CI_tool}. Include build, test, and deploy stages.
+```
+
+**Example Output**:
+
+> **Stage 1**: Checkout & install dependencies
+> **Stage 2**: Run unit & integration tests
+> **Stage 3**: Build Docker image
+> **Stage 4**: Deploy to Kubernetes via helm
+> **LLM Compatibility**: ChatGPT 4, Claude 3, Gemini Pro
+> **Tags**: `CI_CD`, `DevOps`, `deployment`
+
+---
+
+### 🧠 Performance Profiling Guide
+
+**Prompt Purpose**: Advises on tools and methods to profile and optimize performance bottlenecks.
+**Prompt Usage**:
+
+```
+My {language} application is slow in {feature}. Recommend profiling tools, metrics to collect, and optimization strategies.
+```
+
+**Example Output**:
+
+> “Use Chrome DevTools CPU profiler. Benchmark request handlers, optimize SQL queries with EXPLAIN.”
+> **LLM Compatibility**: ChatGPT 4, Claude 3, Gemini Pro
+> **Tags**: `performance`, `profiling`, `optimization`
+
+---
+
+### 🧠 Security Audit Assistant
+
+**Prompt Purpose**: Identifies common vulnerabilities and suggests mitigations for your code.
+**Prompt Usage**:
+
+```
+Audit this code for security issues: {paste_code}\nHighlight XSS, SQL injection, auth flaws, and how to fix them.
+```
+
+**Example Output**:
+
+> * Use parameterized queries to prevent SQL injection.
+> * Escape user input in templates to avoid XSS.
+>   **LLM Compatibility**: ChatGPT 4, Claude 3, Gemini Pro
+>   **Tags**: `security`, `audit`, `vulnerabilities`
+
+---
+
+### 🧠 Legacy Code Migration Plan
+
+**Prompt Purpose**: Creates a step-by-step plan to modernize or refactor legacy systems.
+**Prompt Usage**:
+
+```
+I have a legacy {language} codebase from {year}. Propose a migration strategy to {new_stack}, including phases.
+```
+
+**Example Output**:
+
+> 1. Introduce tests around critical modules
+> 2. Incrementally replace X with Y via facade pattern
+> 3. Migrate database schema using versioning
+>    **LLM Compatibility**: ChatGPT 4, Claude 3, Gemini Pro
+>    **Tags**: `legacy`, `refactoring`, `migration`
+
+---
+
+### 🧠 Containerization Tutor
+
+**Prompt Purpose**: Teaches best practices for Dockerizing applications, including multi-stage builds.
+**Prompt Usage**:
+
+```
+Explain how to Dockerize a {language} microservice. Provide a Dockerfile using multi-stage build and security tips.
+```
+
+**Example Output**:
+
+```Dockerfile
+FROM node:18 AS build
+WORKDIR /app
+COPY . .
+RUN npm ci && npm run build
+
+FROM node:18-slim
+COPY --from=build /app/dist /app
+CMD ["node", "app/index.js"]
+```
+
+**LLM Compatibility**: ChatGPT 4, Claude 3, Gemini Pro
+**Tags**: `containers`, `Docker`, `microservices`
+
+---
+
+### 🧠 Infrastructure-as-Code Generator
+
+**Prompt Purpose**: Generates Terraform or CloudFormation templates for your infrastructure needs.
+**Prompt Usage**:
+
+```
+Create Terraform code to provision a {cloud_provider} setup with VPC, subnets, and an RDS instance.
+```
+
+**Example Output**:
+
+```hcl
+resource "aws_vpc" "main" { cidr_block = "10.0.0.0/16" }
+resource "aws_subnet" "subnet1" { vpc_id = aws_vpc.main.id cidr_block = "10.0.1.0/24" }
+```
+
+**LLM Compatibility**: ChatGPT 4, Claude 3, Gemini Pro
+**Tags**: `IaC`, `Terraform`, `CloudFormation`
+
+---
+
+### 🧠 Logging & Monitoring Setup
+
+**Prompt Purpose**: Advises on integrating centralized logging and alerting for your services.
+**Prompt Usage**:
+
+```
+Recommend a logging and monitoring stack for {language}/{platform} services, including metrics, dashboards, and alerts.
+```
+
+**Example Output**:
+
+> “Use ELK Stack for logs, Prometheus + Grafana for metrics, set alerts on error rate > 5%.”
+> **LLM Compatibility**: ChatGPT 4, Claude 3, Gemini Pro
+> **Tags**: `monitoring`, `observability`, `alerts`
+
+---
+
+### 🧠 Feature Flag Strategy
+
+**Prompt Purpose**: Designs a feature flagging approach for safe deployments and A/B testing.
+**Prompt Usage**:
+
+```
+Outline a feature flag strategy for rolling out {feature_name}, including who toggles flags and rollback plan.
+```
+
+**Example Output**:
+
+> “Use LaunchDarkly. Flag on user group. First enable 5%, then 25%, then 100%. Rollback: disable flag.”
+> **LLM Compatibility**: ChatGPT 4, Claude 3, Gemini Pro
+> **Tags**: `feature_flags`, `releases`, `A/B_testing`
+
+---
+
+### 🧠 Microservice Boundary Planner
+
+**Prompt Purpose**: Helps define service boundaries, data ownership, and communication patterns.
+**Prompt Usage**:
+
+```
+My monolith has modules A, B, C. Suggest how to split into microservices, their APIs, and data stores.
+```
+
+**Example Output**:
+
+> “Service A handles users with PostgreSQL. Service B for orders with MongoDB. Communicate via gRPC.”
+> **LLM Compatibility**: ChatGPT 4, Claude 3, Gemini Pro
+> **Tags**: `microservices`, `architecture`, `SOA`
+
+---
+
+### 🧠 State Management Advisor
+
+**Prompt Purpose**: Assists in choosing and implementing state management solutions for frontend apps.
+**Prompt Usage**:
+
+```
+For a React app with complex form state, recommend a state management pattern or library and show sample code.
+```
+
+**Example Output**:
+
+```jsx
+import { createContext, useContext, useReducer } from 'react';
+```
+
+**LLM Compatibility**: ChatGPT 4, Claude 3, Gemini Pro
+**Tags**: `frontend`, `state`, `architecture`
+
+---
+
+### 🧠 Code Documentation Generator
+
+**Prompt Purpose**: Auto-generates docstrings, Markdown docs, or Javadoc from code.
+**Prompt Usage**:
+
+```
+Generate comprehensive documentation for this module in {language}: {paste_code}\nInclude usage examples.
+```
+
+**Example Output**:
+
+> ````python
+> def fetch_data(url):
+>     """
+>     Fetches JSON data from a URL.
+>     Args:
+>         url (str): The endpoint to fetch.
+>     Returns:
+>         dict: Parsed JSON response.
+>     """
+>     
+>     ```
+> ````
+
+**LLM Compatibility**: ChatGPT 4, Claude 3, Gemini Pro
+**Tags**: `documentation`, `docstrings`, `API_docs`
+
+---
+
+### 🧠 Error Handling Enhancer
+
+**Prompt Purpose**: Improves error handling logic by adding retries, fallbacks, and meaningful messages.
+**Prompt Usage**:
+
+```
+Refactor this code to include robust error handling, retries on failure, and logging: {paste_code}
+```
+
+**Example Output**:
+
+```js
+try {
+  const data = await fetchWithRetry(url, 3);
+} catch (err) {
+  logger.error('Fetch failed', err);
+  throw new ApplicationError('Data fetch failed');
+}
+```
+
+**LLM Compatibility**: ChatGPT 4, Claude 3, Gemini Pro
+**Tags**: `error_handling`, `resilience`, `logging`
+
+---
+
+### 🧠 Continuous Testing Advisor
+
+**Prompt Purpose**: Integrates automated testing at every stage of CI/CD.
+**Prompt Usage**:
+
+```
+Recommend how to integrate unit, integration, and end-to-end tests into our CI pipeline for a {stack} project.
+```
+
+**Example Output**:
+
+> “Run unit tests on PR, smoke tests post-merge, Cypress E2E on staging, gate on 80% coverage.”
+> **LLM Compatibility**: ChatGPT 4, Claude 3, Gemini Pro
+> **Tags**: `testing`, `CI_CD`, `quality_gate`
+
+---
+
+### 🧠 Dependency Audit Helper
+
+**Prompt Purpose**: Scans dependencies for vulnerabilities and suggests upgrades or patches.
+**Prompt Usage**:
+
+```
+Analyze this `package.json` (or `requirements.txt`) and list known CVEs, recommend version bumps or patches.
+```
+
+**Example Output**:
+
+> “lodash\@4.17.15 has CVE-2020-8203 — upgrade to ≥4.17.21”
+> **LLM Compatibility**: ChatGPT 4, Claude 3, Gemini Pro
+> **Tags**: `dependencies`, `security`, `audit`
+
+---
+
+### 🧠 Pair Programming Simulator
+
+**Prompt Purpose**: Acts as a coding partner, prompting you with questions and suggestions as you code.
+**Prompt Usage**:
+
+```
+Pair program on this task: {task_description}. Ask clarifying questions, suggest improvements as I write code.
+```
+
+**Example Output**:
+
+> “Why did you choose recursion here? Have you considered iterative for performance?”
+> **LLM Compatibility**: ChatGPT 4, Claude 3, Gemini Pro
+> **Tags**: `pair_programming`, `collaboration`, `TDD`
+
+---
+
+### 🧠 Language Migration Guide
+
+**Prompt Purpose**: Outlines steps to port code from one language to another, noting pitfalls and best practices.
+**Prompt Usage**:
+
+```
+I want to migrate a Python service to Go. Provide a migration roadmap, key language differences, and sample translations.
+```
+
+**Example Output**:
+
+> “Use goroutines instead of threads; translate exceptions to error returns; sample: `if err != nil {…}`.”
+> **LLM Compatibility**: ChatGPT 4, Claude 3, Gemini Pro
+> **Tags**: `migration`, `language`, `roadmap`
+
+---
+
+### 🧠 Schema Migration Plan
+
+**Prompt Purpose**: Designs safe database migrations with zero downtime strategies.
+**Prompt Usage**:
+
+```
+Plan a migration to add column `status` to `orders` table in production without downtime.
+```
+
+**Example Output**:
+
+> “1. Add nullable `status` column
+> 2\. Backfill values in batches
+> 3\. Make column non-nullable
+> 4\. Deploy code reading new column”
+> **LLM Compatibility**: ChatGPT 4, Claude 3, Gemini Pro
+> **Tags**: `migrations`, `database`, `zero_downtime`
+
+---
+
+### 🧠 GraphQL Schema & Resolver Writer
+
+**Prompt Purpose**: Generates GraphQL type definitions and resolver stubs for your data models.
+**Prompt Usage**:
+
+```
+Create a GraphQL schema for {models} and stub resolvers in {language}.
+```
+
+**Example Output**:
+
+```graphql
+type User { id: ID!, name: String! posts: [Post] }
+```
+
+**LLM Compatibility**: ChatGPT 4, Claude 3, Gemini Pro
+**Tags**: `GraphQL`, `schema`, `resolvers`
+
+---
+
+### 🧠 Real-Time System Design
+
+**Prompt Purpose**: Architect a scalable, low-latency real-time application (chat, streaming).
+**Prompt Usage**:
+
+```
+Design a real-time chat system handling {message_rate} msgs/sec. Include components, protocols, and scaling strategy.
+```
+
+**Example Output**:
+
+> “Use WebSocket gateways, Redis pub/sub, partitioned message queues, auto-scaling consumers.”
+> **LLM Compatibility**: ChatGPT 4, Claude 3, Gemini Pro
+> **Tags**: `architecture`, `scalability`, `real_time`
+
+---
+
+### 🧠 Modular Architecture Advisor
+
+**Prompt Purpose**: Suggests how to decompose a large codebase into reusable modules or packages.
+**Prompt Usage**:
+
+```
+My app has features A, B, C. Propose a modular package structure, interfaces, and dependency rules.
+```
+
+**Example Output**:
+
+> “Packages: auth, billing, ui. Each exposes clear APIs; shared utils in common package.”
+> **LLM Compatibility**: ChatGPT 4, Claude 3, Gemini Pro
+> **Tags**: `modularity`, `architecture`, `design`
+
+---
+
+### 🧠 Localization & i18n Setup
+
+**Prompt Purpose**: Guides you through integrating internationalization and localization.
+**Prompt Usage**:
+
+```
+Explain how to add i18n support to a React app using i18next, including folder structure and fallback strategy.
+```
+
+**Example Output**:
+
+> “Create `/locales/en/translation.json`, wrap app in `<I18nextProvider>`, use `t('key')`…”
+> **LLM Compatibility**: ChatGPT 4, Claude 3, Gemini Pro
+> **Tags**: `i18n`, `localization`, `frontend`
+
+---
+
+### 🧠 OAuth Integration Example
+
+**Prompt Purpose**: Implements OAuth 2.0 login flow for your application.
+**Prompt Usage**:
+
+```
+Show how to integrate GitHub OAuth login in a Node.js/Express app, including callback handling and token storage.
+```
+
+**Example Output**:
+
+```js
+app.get('/auth/github', passport.authenticate('github'));
+```
+
+**LLM Compatibility**: ChatGPT 4, Claude 3, Gemini Pro
+**Tags**: `security`, `OAuth`, `authentication`
+
+---
+
+### 🧠 Legacy API Wrapper Creator
+
+**Prompt Purpose**: Generates a modern wrapper around a deprecated or poorly designed API.
+**Prompt Usage**:
+
+```
+Wrap this old XML-based API into a clean JSON REST interface in {language}.
+```
+
+**Example Output**:
+
+> “GET /items returns parsed JSON from XML `<item>` elements.”
+> **LLM Compatibility**: ChatGPT 4, Claude 3, Gemini Pro
+> **Tags**: `wrappers`, `API`, `modernization`
+
+---
+
+### 🧠 Feature Roadmap Visualizer
+
+**Prompt Purpose**: Translates a list of planned features into a timeline or roadmap outline.
+**Prompt Usage**:
+
+```
+Here are upcoming features: {list}. Create a quarterly roadmap with milestones and dependencies.
+```
+
+**Example Output**:
+
+> “Q3: v1 release (auth, CRUD). Q4: analytics & notifications. Q1 2026: mobile support.”
+> **LLM Compatibility**: ChatGPT 4, Claude 3, Gemini Pro
+> **Tags**: `roadmap`, `planning`, `visualization`
+
+---
+
+### 🧠 Cross-Browser Testing Plan
+
+**Prompt Purpose**: Outlines a strategy for testing web apps across multiple browsers and devices.
+**Prompt Usage**:
+
+```
+Recommend tools, frameworks, and test cases to cover Chrome, Firefox, Safari, and mobile browsers.
+```
+
+**Example Output**:
+
+> “Use Selenium Grid with BrowserStack integration. Write smoke tests for key flows.”
+> **LLM Compatibility**: ChatGPT 4, Claude 3, Gemini Pro
+> **Tags**: `testing`, `cross_browser`, `QA`
+
+---
+
+### 🧠 SDK & CLI Tool Generator
+
+**Prompt Purpose**: Scaffolds an SDK or CLI for your API, including installation and command patterns.
+**Prompt Usage**:
+
+```
+Generate a Node.js SDK for the following API spec: {spec}. Include usage examples and error handling.
+```
+
+**Example Output**:
+
+> “`npm install myapi`; `const client = new MyApi({ key })`; `await client.getUsers()`.”
+> **LLM Compatibility**: ChatGPT 4, Claude 3, Gemini Pro
+> **Tags**: `SDK`, `CLI`, `developer_experience`
+
+---
+
+### 🧠 Code Style Linter Setup
+
+**Prompt Purpose**: Configures linters and formatters for consistent code style.
+**Prompt Usage**:
+
+```
+Provide ESLint and Prettier configuration for a TypeScript React project with Airbnb style guide.
+```
+
+**Example Output**:
+
+```json
+{
+  "extends": ["airbnb", "plugin:@typescript-eslint/recommended"],
+  "rules": { "react/jsx-filename-extension": [1, { "extensions": [".tsx"] }] }
+}
+```
+
+**LLM Compatibility**: ChatGPT 4, Claude 3, Gemini Pro
+**Tags**: `linting`, `style`, `configuration`
+
+---
+
+### 🧠 Multi-Tenancy Design Guide
+
+**Prompt Purpose**: Advises on designing a multi-tenant architecture for SaaS platforms.
+**Prompt Usage**:
+
+```
+Design a multi-tenancy model for a SaaS app: schema-per-tenant vs shared-schema, auth isolation, data partitioning.
+```
+
+**Example Output**:
+
+> “Use shared schema with tenant\_id column. Enforce row-level security in Postgres.”
+> **LLM Compatibility**: ChatGPT 4, Claude 3, Gemini Pro
+> **Tags**: `SaaS`, `multi_tenancy`, `architecture`
+
+---
+
+### 🧠 API Rate Limiting Strategy
+
+**Prompt Purpose**: Outlines techniques to throttle and protect your API from abuse.
+**Prompt Usage**:
+
+```
+Recommend rate limiting approaches for a public REST API handling 10k req/min. Include libraries and config.
+```
+
+**Example Output**:
+
+> “Use Redis bucket algorithm via express-rate-limit. Set 100 req/min per IP.”
+> **LLM Compatibility**: ChatGPT 4, Claude 3, Gemini Pro
+> **Tags**: `rate_limiting`, `security`, `scalability`
+
+---
+
+### 🧠 Graph Database Use-Cases
+
+**Prompt Purpose**: Helps decide when to use a graph database and models relationships accordingly.
+**Prompt Usage**:
+
+```
+I have social network data. Explain why and how to store it in Neo4j, including sample CYPHER queries.
+```
+
+**Example Output**:
+
+> “Use `CREATE (u:User)-[:FOLLOWS]->(v:User)`. Query mutual friends via `MATCH`…”
+> **LLM Compatibility**: ChatGPT 4, Claude 3, Gemini Pro
+> **Tags**: `graph_db`, `modeling`, `Neo4j`
+
+---
+
+### 🧠 Serverless Function Blueprint
+
+**Prompt Purpose**: Designs AWS Lambda or Google Cloud Functions for event-driven tasks.
+**Prompt Usage**:
+
+```
+Explain how to implement a serverless image thumbnail generator using AWS Lambda and S3 triggers.
+```
+
+**Example Output**:
+
+> “On S3 `ObjectCreated`, trigger Lambda: download image, resize with Sharp, upload to `thumbnails/`.”
+> **LLM Compatibility**: ChatGPT 4, Claude 3, Gemini Pro
+> **Tags**: `serverless`, `Lambda`, `event_driven`
+
+---
+
+### 🧠 API Versioning Policy
+
+**Prompt Purpose**: Establishes a clear versioning scheme and deprecation workflow for your APIs.
+**Prompt Usage**:
+
+```
+Propose an API versioning strategy (URI vs header) and deprecation policy for a public REST API.
+```
+
+**Example Output**:
+
+> “Use `/v1/` prefix. Support old versions for 6 months. Return Deprecation header on sunset.”
+> **LLM Compatibility**: ChatGPT 4, Claude 3, Gemini Pro
+> **Tags**: `versioning`, `policy`, `API_management`
+
+---
+
+### 🧠 Automated Code Changelog Creator
+
+**Prompt Purpose**: Generates human-readable changelogs from commit history.
+**Prompt Usage**:
+
+```
+Analyze these Git commit messages and produce a categorized CHANGELOG.md (Added, Fixed, Changed).
+```
+
+**Example Output**:
+
+```markdown
+## [1.2.0] - 2025-06-10  
+### Added  
+- New user profile endpoint  
+### Fixed  
+- Corrected date parsing bug  
+```
+
+**LLM Compatibility**: ChatGPT 4, Claude 3, Gemini Pro
+**Tags**: `changelog`, `git`, `release_notes`
+
+---
+
+### 🧠 Cross-Team API Contract Validator
+
+**Prompt Purpose**: Helps define and validate API contracts between frontend and backend teams.
+**Prompt Usage**:
+
+```
+Define a JSON schema for this API response: {example_response} and show how to validate it in code.
+```
+
+**Example Output**:
+
+```json
+{ "type":"object", "properties":{ "id":{"type":"string"}, "name":{"type":"string"} }, "required":["id","name"] }
+```
+
+**LLM Compatibility**: ChatGPT 4, Claude 3, Gemini Pro
+**Tags**: `contracts`, `schema_validation`, `collaboration`
+
+---
+
+### 🧠 GDPR Compliance Advisor
+
+**Prompt Purpose**: Advises on handling user data to comply with GDPR and similar regulations.
+**Prompt Usage**:
+
+```
+We collect emails, names, and usage logs. Recommend how to store, anonymize, and allow data deletion per GDPR.
+```
+
+**Example Output**:
+
+> “Encrypt emails at rest, log IPs hashed, expose `/users/{id}/delete` endpoint to anonymize PII.”
+> **LLM Compatibility**: ChatGPT 4, Claude 3, Gemini Pro
+> **Tags**: `compliance`, `GDPR`, `data_privacy`
+
+---
+
+### 🧠 Release Management Checklist
+
+**Prompt Purpose**: Provides a pre-release checklist to ensure smooth, error-free deployments.
+**Prompt Usage**:
+
+```
+Create a release checklist covering build verification, migration scripts, config updates, and stakeholder signoff.
+```
+
+**Example Output**:
+
+> * ✅ Build passed on CI
+> * ✅ Smoke tests green on staging
+> * ✅ Database migrations validated
+> * ✅ Send release notes
+>   **LLM Compatibility**: ChatGPT 4, Claude 3, Gemini Pro
+>   **Tags**: `release`, `checklist`, `devops`
+
+---
+
+### 🧠 IDE Productivity Booster
+
+**Prompt Purpose**: Suggests IDE extensions, settings, and shortcuts for your language and workflow.
+**Prompt Usage**:
+
+```
+Recommend VS Code extensions and settings for a Python web developer using Django and Docker.
+```
+
+**Example Output**:
+
+> “Install `Python`, `Docker`, `Pylance`, enable `formatOnSave`, set `python.envFile`.”
+> **LLM Compatibility**: ChatGPT 4, Claude 3, Gemini Pro
+> **Tags**: `IDE`, `productivity`, `extensions`
+
+---
+
+### 🧠 Chaos Engineering Starter
+
+**Prompt Purpose**: Introduces chaos experiments to test system resilience.
+**Prompt Usage**:
+
+```
+Design a chaos engineering experiment for a microservice architecture to test failure of the payments service.
+```
+
+**Example Output**:
+
+> “Use Gremlin to kill payment service pod during peak load, monitor SLOs and fallback behavior.”
+> **LLM Compatibility**: ChatGPT 4, Claude 3, Gemini Pro
+> **Tags**: `chaos`, `resilience`, `SRE`
+
+---
+
+### 🧠 Full-Stack Feature Blueprint
+
+**Prompt Purpose**: Provides end-to-end guidance for building and deploying a full-stack feature.
+**Prompt Usage**:
+
+```
+Outline steps to implement user comments: database tables, backend API, frontend UI, and deployment.
+```
+
+**Example Output**:
+
+> “DB: Comments(id, user\_id, post\_id, text); API: CRUD endpoints; UI: React component; Deploy via CI.”
+> **LLM Compatibility**: ChatGPT 4, Claude 3, Gemini Pro
+> **Tags**: `full_stack`, `feature`, `blueprint`
+
+---
+
+### 🧠 Dark Mode Theming Guide
+
+**Prompt Purpose**: Helps implement a dark mode theme in your application with accessibility in mind.
+**Prompt Usage**:
+
+```
+Explain how to add dark mode to a CSS/SCSS project, including color variables, media queries, and contrast checks.
+```
+
+**Example Output**:
+
+> “Define `--bg: #121212`, `--fg: #e0e0e0`, use `@media (prefers-color-scheme: dark)`. Check WCAG contrast.”
+> **LLM Compatibility**: ChatGPT 4, Claude 3, Gemini Pro
+> **Tags**: `theming`, `UI`, `accessibility`
+
+---
+
+### 🧠 Code Generation Security Filter
+
+**Prompt Purpose**: Reviews AI-generated code and filters out insecure patterns.
+**Prompt Usage**:
+
+```
+I used AI to generate this code: {paste_code}. Identify any insecure patterns and rewrite safely.
+```
+
+**Example Output**:
+
+> “Remove `eval()`, validate input, use prepared statements instead of string concat.”
+> **LLM Compatibility**: ChatGPT 4, Claude 3, Gemini Pro
+> **Tags**: `AI_Code`, `security`, `review`
+
+---
+
+### 🧠 Feature Toggle Implementation
+
+**Prompt Purpose**: Guides you through adding toggles in code for experimental features.
+**Prompt Usage**:
+
+```
+Show how to implement a feature toggle in a Spring Boot app using a config flag and conditional bean loading.
+```
+
+**Example Output**:
+
+```java
+@ConditionalOnProperty(name="feature.newUI", havingValue="true")
+@Bean public NewUIService newUIService() { … }
+```
+
+**LLM Compatibility**: ChatGPT 4, Claude 3, Gemini Pro
+**Tags**: `feature_toggle`, `Spring`, `conditional_loading`
+
+---
+
+### 🧠 Automated Architecture Diagram
+
+**Prompt Purpose**: Generates a description for an architecture diagram based on your components list.
+**Prompt Usage**:
+
+```
+Here are my components: frontend, API gateway, auth service, data store. Describe their interactions for a diagram.
+```
+
+**Example Output**:
+
+> “Client → API Gateway → Auth Service → JWT → Backend services → Database.”
+> **LLM Compatibility**: ChatGPT 4, Claude 3, Gemini Pro
+> **Tags**: `architecture`, `diagrams`, `visualization`
+
+---
+
+### 🧠 Local Dev Environment Script
+
+**Prompt Purpose**: Creates a shell or PowerShell script to bootstrap your development environment.
+**Prompt Usage**:
+
+```
+Write a Bash script to set up Python virtualenv, install dependencies, start Postgres via Docker, and launch the app.
+```
+
+**Example Output**:
+
+```bash
+#!/usr/bin/env bash
+python3 -m venv venv && source venv/bin/activate
+pip install -r requirements.txt
+docker run -d --name pg -e POSTGRES_PASSWORD=pass -p 5432:5432 postgres
+flask run
+```
+
+**LLM Compatibility**: ChatGPT 4, Claude 3, Gemini Pro
+**Tags**: `setup`, `scripting`, `dev_environment`
+
+---
+
+### 🧠 Feature Branch Strategy Advisor
+
+**Prompt Purpose**: Recommends a Git branching model for your team’s release cadence.
+**Prompt Usage**:
+
+```
+Suggest a Git workflow (e.g., GitFlow, trunk-based) for a team releasing weekly with hotfix needs.
+```
+
+**Example Output**:
+
+> “Use trunk-based: short-lived feature branches merged to main, use tags for releases, emergency branches for hotfix.”
+> **LLM Compatibility**: ChatGPT 4, Claude 3, Gemini Pro
+> **Tags**: `git`, `workflow`, `branching`
+
+---
+
+### 🧠 End-to-End Encryption Design
+
+**Prompt Purpose**: Advises on implementing end-to-end encryption for messages or data at rest.
+**Prompt Usage**:
+
+```
+Explain how to add E2EE to a chat app: key management, encryption libraries, and UX considerations.
+```
+
+**Example Output**:
+
+> “Use libsodium for key pairs, exchange keys via X3DH, encrypt messages with AES-GCM.”
+> **LLM Compatibility**: ChatGPT 4, Claude 3, Gemini Pro
+> **Tags**: `encryption`, `security`, `design`
+
+working in progress...
